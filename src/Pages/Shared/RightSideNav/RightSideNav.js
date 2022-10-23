@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import {
@@ -13,16 +13,39 @@ import ListGroup from "react-bootstrap/ListGroup";
 import Carousel from "react-bootstrap/Carousel";
 import Brand1 from "../../../asset/brand/Brand1.png";
 import Brand2 from "../../../asset/brand/Brand2.png";
+import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 
 const RightSideNav = () => {
+  const { providerLogin } = useContext(AuthContext);
+  const googleProvider = new GoogleAuthProvider();
+  const gitProvider = new GithubAuthProvider();
+
+  const handleGoogleSignIn = () => {
+    providerLogin(googleProvider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => console.error(error));
+  };
+
+  const handleGitSignIn = () => {
+    providerLogin(gitProvider);
+  };
+
   return (
     <div className="mt-3">
       <ButtonGroup vertical className="w-100 mb-2">
-        <Button variant="outline-primary" className="mb-2">
+        <Button
+          variant="outline-primary"
+          className="mb-2"
+          onClick={handleGoogleSignIn}
+        >
           <FaGoogle></FaGoogle> Login with Google
         </Button>
-        <Button variant="outline-dark">
-          <FaGithub></FaGithub>Login with Github
+        <Button variant="outline-dark" onClick={handleGitSignIn}>
+          <FaGithub></FaGithub> Login with Github
         </Button>
       </ButtonGroup>
       <h6 className="text-start mt-3">Fllow Us On </h6>
