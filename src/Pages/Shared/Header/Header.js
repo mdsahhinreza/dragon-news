@@ -48,10 +48,6 @@ const Header = () => {
                 <FaHome /> Home
               </Button>
 
-              <Button variant="danger" className="fw-bolder btn-sm me-2 my-2">
-                <FaPlus /> Advertise
-              </Button>
-
               <div className="d-flex">
                 {user ? (
                   <>

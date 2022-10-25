@@ -94,9 +94,6 @@ const Login = () => {
               <p className="m-0 p-0">
                 New in Dragon news? Please <Link to="/register"> Register</Link>
               </p>
-              <p className="m-0 p-0">
-                Forget password? <Link>Reset Now</Link>
-              </p>
             </div>
           </div>
           <ButtonGroup vertical className="w-100 my-2">

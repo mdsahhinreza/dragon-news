@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const TermsAndConditions = () => {
   return (
-    <div>
+    <div style={{ minHeight: "85vh" }}>
       <h3>Here is out terms and conditions</h3>
       <p>
         Go back to Registration : <Link to="/register">Register</Link>

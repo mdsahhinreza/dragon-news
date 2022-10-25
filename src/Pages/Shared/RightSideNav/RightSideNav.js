@@ -69,7 +69,7 @@ const RightSideNav = () => {
         <ListGroup.Item className="mb-2">
           <FaTwitch /> Twitch
         </ListGroup.Item>
-        <ListGroup.Item className="mb-2"> Turms and Condition</ListGroup.Item>
+        <ListGroup.Item className="mb-2"> Privacy and Policy</ListGroup.Item>
       </ListGroup>
 
       <div className="slider">
