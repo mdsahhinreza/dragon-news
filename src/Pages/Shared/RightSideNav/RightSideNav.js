@@ -31,7 +31,12 @@ const RightSideNav = () => {
   };
 
   const handleGitSignIn = () => {
-    providerLogin(gitProvider);
+    providerLogin(gitProvider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => console.error(error));
   };
 
   return (

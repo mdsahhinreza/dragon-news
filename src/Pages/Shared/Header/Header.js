@@ -4,7 +4,14 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
-import { FaPlus, FaHome, FaSignOutAlt, FaKey, FaRegEdit } from "react-icons/fa";
+import {
+  FaPlus,
+  FaHome,
+  FaSignOutAlt,
+  FaKey,
+  FaRegEdit,
+  FaUserAlt,
+} from "react-icons/fa";
 import LeftSideNav from "../LeftSideNav/LeftSideNav";
 import ProImg from "../../../asset/profile/profile.png";
 import { Link } from "react-router-dom";
@@ -46,8 +53,16 @@ const Header = () => {
               </Button>
 
               <div className="d-flex">
-                {user?.photoURL ? (
+                {user ? (
                   <>
+                    <Button
+                      variant="danger"
+                      className="fw-bolder btn-sm me-2 my-2"
+                      as={Link}
+                      to="/profile"
+                    >
+                      <FaUserAlt /> Profile
+                    </Button>
                     <Button
                       variant="danger"
                       onClick={handleSignOut}
@@ -55,12 +70,21 @@ const Header = () => {
                     >
                       <FaSignOutAlt /> Log Out
                     </Button>
-                    <img
-                      width="50"
-                      className="border rounded-circle border-warning"
-                      src={user.photoURL}
-                      alt=""
-                    />
+                    {user?.photoURL ? (
+                      <img
+                        width="50"
+                        className="border rounded-circle border-warning"
+                        src={user.photoURL}
+                        alt=""
+                      />
+                    ) : (
+                      <img
+                        width="50"
+                        className="border rounded-circle border-warning"
+                        src={ProImg}
+                        alt=""
+                      />
+                    )}
                   </>
                 ) : (
                   <>
